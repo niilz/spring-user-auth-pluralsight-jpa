@@ -40,7 +40,17 @@ public class ConferenceSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource);
+        // auth.jdbcAuthentication().dataSource(dataSource);
+        
+        auth.ldapAuthentication()
+            .userDnPatterns("uid={0},ou=people") // DN: Distinguished Name, ou: organization unit
+            .groupSearchBase("ou=groups")
+            .contextSource()
+            .url("ldap://localhost:8389/dc=pluralsight,dc=com") // dc: directory content
+            .and()
+            .passwordCompare()
+            .passwordEncoder(passwordEncoder())
+            .passwordAttribute("userPassword");
     }
 
     @Bean
