@@ -19,14 +19,14 @@ objectclass: top
 objectclass: organizationalUnit
 ou: people
 
-dn: uid=bryan,ou=people,dc=pluralsight,dc=com
+dn: uid=niilz,ou=people,dc=pluralsight,dc=com
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
 objectclass: inetOrgPerson
-cn: Bryan Hansen
-sn: Hansen
-uid: bryan
+cn: Nils Haberstroh
+sn: Haberstroh
+uid: niilz
 userPassword: $2a$10$zolX3Nlol5ATAVAQd1bAfOovObo16D8evYjsMJvhErppR6aWofTw2
 
 dn: cn=developers,ou=groups,dc=pluralsight,dc=com
@@ -34,18 +34,18 @@ objectclass: top
 objectclass: groupOfUniqueNames
 cn: developers
 ou: developer
-uniqueMember: uid=bryan,ou=people,dc=pluralsight,dc=com
+uniqueMember: uid=niilz,ou=people,dc=pluralsight,dc=com
 
 dn: cn=managers,ou=groups,dc=pluralsight,dc=com
 objectclass: top
 objectclass: groupOfUniqueNames
 cn: managers
 ou: manager
-uniqueMember: uid=bryan,ou=people,dc=pluralsight,dc=com
+uniqueMember: uid=niilz,ou=people,dc=pluralsight,dc=com
 
 dn: cn=submanagers,ou=subgroups,ou=groups,dc=pluralsight,dc=com
 objectclass: top
 objectclass: groupOfUniqueNames
 cn: submanagers
 ou: submanager
-uniqueMember: uid=bryan,ou=people,dc=pluralsight,dc=com
+uniqueMember: uid=niilz,ou=people,dc=pluralsight,dc=com
