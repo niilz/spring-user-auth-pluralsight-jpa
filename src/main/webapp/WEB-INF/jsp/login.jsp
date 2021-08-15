@@ -45,6 +45,11 @@
         <c:if test="${not empty param.error}" >Invalid username and password.</c:if>
     </div>
 
+    <c:if test="${not empty param.logout}">
+        <div class="alert alert-success" role="alert">
+            Logout was successful!
+        </div>
+    </c:if>
 
     <form:form action="perform_login" method="post">
         <form:errors path="*" cssClass="errorblock" element="div" />
