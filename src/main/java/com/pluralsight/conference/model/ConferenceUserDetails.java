@@ -7,14 +7,12 @@ import org.springframework.security.core.userdetails.User;
 
 public class ConferenceUserDetails extends User {
 
-	private String nickname;
-
-	public ConferenceUserDetails(String username, String password, boolean enabled, boolean accountNonExpired,
-			boolean credentialsNonExpired, boolean accountNonLocked,
-			Collection<? extends GrantedAuthority> authorities) {
-		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+	public ConferenceUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+		super(username, password, authorities);
 		//TODO Auto-generated constructor stub
 	}
+
+	private String nickname;
 
 
 	public String getNickname() {
