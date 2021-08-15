@@ -38,7 +38,9 @@ public class ConferenceSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .failureUrl("/login?error=true")
                 .loginProcessingUrl("/perform_login")
+                .permitAll()
                 .defaultSuccessUrl("/", true);
 
     }
