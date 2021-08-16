@@ -1,12 +1,16 @@
 package com.pluralsight.conference.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+@Entity
 public class Account {
 
 	@NotNull
 	@NotEmpty
+	@Id
 	private String username;
 
 	@NotNull
