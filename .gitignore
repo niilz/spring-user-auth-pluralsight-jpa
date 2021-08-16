@@ -3,3 +3,8 @@
 target
 conference.iml
 .data
+
+# Eclipse stuff
+.classpath
+.project
+.settings
