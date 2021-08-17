@@ -44,8 +44,7 @@
     <form:form modelAttribute="account" method="post">
         <form:errors path="*" cssClass="errorblock" element="div" />
         <div><label> Username: <input type="text" name="username"/> </label></div>
-        <div><label> Firts Name: <input type="text" name="username"/> </label></div>
-        <div><label> Firts Name: <input type="text" name="firstName"/> </label></div>
+        <div><label> First Name: <input type="text" name="firstName"/> </label></div>
         <div><label> Last Name: <input type="text" name="lastName"/> </label></div>
         <div><label> Email: <input type="text" name="email"/> </label></div>
         <div><label> Password: <input type="password" name="password"/> </label></div>
