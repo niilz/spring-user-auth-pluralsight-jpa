@@ -13,9 +13,7 @@ public class AccountServiceImpl implements AccountService {
 	private AccountRepository accountRepository;
 
 	@Override
-	public void createVerificationToke(Account account, String token) {
-		// TODO Auto-generated method stub
-		
+	public void createVerificationToken(Account account, String token) {
 	}
 
 	@Override
