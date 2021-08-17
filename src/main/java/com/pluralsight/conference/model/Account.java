@@ -1,34 +1,44 @@
 package com.pluralsight.conference.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "accounts")
 public class Account {
 
 	@NotNull
 	@NotEmpty
 	@Id
+	@Column(name = "username")
 	private String username;
 
 	@NotNull
 	@NotEmpty
+	@Column(name = "firstname")
 	private String firstName;
 
 	@NotNull
 	@NotEmpty
+	@Column(name = "lastname")
 	private String lastName;
 
 	@NotNull
 	@NotEmpty
+	@Column(name = "password")
 	private String password;
 
+	@Transient
 	private String matchingPassword;
 
 	@NotNull
 	@NotEmpty
+	@Column(name = "email")
 	private String email;
 
 
