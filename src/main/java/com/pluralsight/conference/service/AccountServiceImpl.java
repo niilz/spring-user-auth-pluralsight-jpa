@@ -1,8 +1,15 @@
 package com.pluralsight.conference.service;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 import com.pluralsight.conference.model.Account;
+import com.pluralsight.conference.model.Authority;
+import com.pluralsight.conference.model.ConferenceUserDetails;
+import com.pluralsight.conference.model.UserDetailsEntity;
 import com.pluralsight.conference.model.VerificationToken;
 import com.pluralsight.conference.repository.AccountRepository;
+import com.pluralsight.conference.repository.UserDetailsRepository;
 import com.pluralsight.conference.repository.VerificationTokenRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +24,9 @@ public class AccountServiceImpl implements AccountService {
 	@Autowired
 	private VerificationTokenRepository verificationTokenRepository;
 
+	@Autowired
+	private UserDetailsRepository userDetailsRepository;
+
 	@Override
 	public void createVerificationToken(Account account, String token) {
 		var verificationToken = new VerificationToken();
@@ -30,8 +40,27 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public void confirmAccount(String token) {
-		// TODO Auto-generated method stub
-		
+		// retrieve token
+		var verificationToken = verificationTokenRepository.findByToken(token);
+		// verify date
+		if (verificationToken.getExpiryDate().isAfter(LocalDateTime.now())) {
+		// move from account table to user details table
+			var account = accountRepository.findByUsername(verificationToken.getUsername());
+			// create user details
+			var authorities = new ArrayList<Authority>();
+			authorities.add(new Authority("ROLE_USER", account.getUsername()));
+
+			var userDetails = new ConferenceUserDetails(account.getUsername(),
+					account.getPassword(), authorities);
+
+
+			var userEntity = new UserDetailsEntity(userDetails);
+
+			userDetailsRepository.save(userEntity);
+			System.out.println("Persisted the user (incl. authorities): " + userDetails);
+			// delete from accounts
+			// delete from tokens
+		}
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AccountListener implements ApplicationListener<OnCreateAccountEvent> {
 
-	private String serverUrl = "https://localhost:8080/";
+	private String serverUrl = "http://localhost:8080/";
 
 	@Autowired
 	private JavaMailSender mailSender;
