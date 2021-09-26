@@ -22,7 +22,6 @@ public class Authority implements GrantedAuthority {
 	@Column(name = "authority")
 	private String authority;
 
-	//@ManyToOne(targetEntity = UserDetailsEntity.class)
 	@Column(name = "username")
 	private String username;
 
