@@ -57,9 +57,10 @@ public class AccountServiceImpl implements AccountService {
 			var userEntity = new UserDetailsEntity(userDetails);
 
 			userDetailsRepository.save(userEntity);
-			System.out.println("Persisted the user (incl. authorities): " + userDetails);
 			// delete from accounts
+			accountRepository.delete(account);
 			// delete from tokens
+			verificationTokenRepository.delete(verificationToken);
 		}
 	}
 

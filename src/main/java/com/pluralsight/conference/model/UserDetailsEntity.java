@@ -29,12 +29,6 @@ public class UserDetailsEntity {
 	public UserDetailsEntity() {
 	}
 
-	public UserDetailsEntity(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-		this.username = username;
-		this.password = password;
-		this.authorities = authorities;
-	}
-
 	public UserDetailsEntity(ConferenceUserDetails user) {
 		this.username = user.getUsername();
 		this.password = user.getPassword();
