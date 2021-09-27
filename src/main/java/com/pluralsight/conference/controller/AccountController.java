@@ -56,7 +56,6 @@ public class AccountController {
 
 	@GetMapping("/accountConfirm")
 	public String confirmAccount(@RequestParam("token") String token) {
-		System.out.println("The given Token: " + token);
 		accountService.confirmAccount(token);
 		return "accountConfirmed";
 	}
