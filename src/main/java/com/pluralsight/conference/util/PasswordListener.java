@@ -2,6 +2,8 @@ package com.pluralsight.conference.util;
 
 import java.util.UUID;
 
+import com.pluralsight.conference.service.PasswordService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.mail.SimpleMailMessage;
@@ -15,6 +17,9 @@ public class PasswordListener implements ApplicationListener<OnPasswordResetEven
 
 	@Autowired
 	private JavaMailSender mailSender;
+
+	@Autowired
+	private PasswordService passwordService;
 
 	@Override
 	public void onApplicationEvent(OnPasswordResetEvent event) {
