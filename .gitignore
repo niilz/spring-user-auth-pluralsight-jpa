@@ -8,3 +8,7 @@ conference.iml
 .classpath
 .project
 .settings
+
+# vimspector (debugger)
+.vim
+.vimspector*
