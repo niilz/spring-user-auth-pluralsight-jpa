@@ -28,8 +28,7 @@ public class PasswordServiceImpl implements PasswordService {
 
 	@Override
 	public void update(Password password, String username) {
-		// TODO Auto-generated method stub
-		
+		//passwordRepository.update(password, username);
 	}
 
 
