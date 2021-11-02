@@ -22,7 +22,7 @@ public class RegistrationController {
                                               Registration registration,
                                   BindingResult result) {
 
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             System.out.println("There were errors");
             return "registration";
         }
