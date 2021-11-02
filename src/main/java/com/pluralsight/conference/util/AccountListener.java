@@ -43,7 +43,6 @@ public class AccountListener implements ApplicationListener<OnCreateAccountEvent
 		email.setTo(recipientAdress);
 		email.setSubject(subject);
 		email.setText(message + "\r\n" + serverUrl + confirmationUrl);
-		System.out.println("About to send an Email");
 		mailSender.send(email);
 		System.out.println("Sent an Email");
 	}

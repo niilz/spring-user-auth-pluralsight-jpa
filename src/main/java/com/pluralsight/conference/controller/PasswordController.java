@@ -53,7 +53,6 @@ public class PasswordController {
 		// verify Token
 		var password = new Password();
 		password.setToken(token);
-		System.out.println("getNewPassword");
 
 		return new ModelAndView("resetPassword", "password", password);
 	}
