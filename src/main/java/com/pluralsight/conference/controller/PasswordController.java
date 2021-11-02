@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import com.pluralsight.conference.model.Password;
 import com.pluralsight.conference.repository.PasswordRepository;
 import com.pluralsight.conference.repository.UserDetailsRepository;
-import com.pluralsight.conference.service.PasswordService;
 import com.pluralsight.conference.util.OnPasswordResetEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,16 +48,17 @@ public class PasswordController {
 		return "redirect:password?sent=true";
 	}
 
-	@GetMapping("/passwordReset")
+	@GetMapping("passwordReset")
 	public ModelAndView getNewPassword(@RequestParam("token") String token) {
 		// verify Token
 		var password = new Password();
 		password.setToken(token);
+		System.out.println("getNewPassword");
 
 		return new ModelAndView("resetPassword", "password", password);
 	}
 
-	@PostMapping("/passwordReset")
+	@PostMapping("passwordReset")
 	public String saveNewPassword(@RequestParam("token") String token,
 			@ModelAttribute("password") Password password) {
 
